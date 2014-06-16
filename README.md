@@ -13,3 +13,4 @@ Configure your request by modifying the `conf.py` file. See <http://www.uniprot.
 
 - Make the code more flexible so that it can support all the Uniprot output formats. 
 - Make it accept command-line argument for piping
+- Add support for Uniprot's useful ID mapping service
