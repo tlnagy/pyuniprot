@@ -25,22 +25,22 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 """
-pyuniprot is a Python 3 wrapper around Uniprot/Swiss-Prot's REST API.
+pyuniprot is a Python wrapper around Uniprot/Swiss-Prot's REST API.
 
 It outputs a CSV file with the requested columns of information. It uses pure 
-Python 3 with no external packages needed.
+Python with no external packages needed.
 
 Examples
 --------
 
->>> ./pyuniprot
+>>> ./pyuniprot.py
 
 This will run pyuniprot and it will default to using the `conf.py` file in
 the local directory
 
 >>> echo '{"columns": "id,entry name,reviewed,protein names,sequence", 
 "output": "output", "query": "sonic hedgehog AND organism:human"}' |
-./pyuniprot
+./pyuniprot.py
 
 pyuniprot will use the json file provided to query Uniprot. This allows it
 to be used in a larger toolchain.
@@ -49,10 +49,15 @@ to be used in a larger toolchain.
 
 import sys
 import os
+PY3K = True
 if sys.hexversion < 0x03000000:
-    raise Exception("Please use Python 3.0+")
-import urllib.request
-import urllib.parse
+    PY3K = False
+if PY3K:
+    import urllib.request as request
+    import urllib.parse as parse
+else:
+    import urllib as parse
+    import urllib2 as request
 import csv
 import argparse
 import json
@@ -67,12 +72,12 @@ def _retrieveFromUniProt(params, service='uniprot/'):
     conf.py and http://www.uniprot.org/faq/28 for building queries. Returns a 
     tuple of the raw data and the header.
     """
-    data = urllib.parse.urlencode(params).encode('utf-8')
-    request = urllib.request.Request(baseurl + service, data)
-    request.add_header('User-Agent', 'Python')
+    data = parse.urlencode(params).encode('utf-8')
+    url_request = request.Request(baseurl + service, data)
+    url_request.add_header('User-Agent', 'Python')
     
     print("Making request...")    
-    response = urllib.request.urlopen(request)
+    response = request.urlopen(url_request)
     print("Request complete.")
     return response.read().decode('utf-8'), response.info()
 

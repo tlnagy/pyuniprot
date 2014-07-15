@@ -5,13 +5,13 @@ A simple and easy-to-use Python frontend for UniProt's REST API. It outputs a CS
 
 ## Installation
 
-Either clone it to your computer or download it as a zip file. To run it you will need Python 3+ installed and the following command: 
+Either clone it to your computer or download it as a zip file. To run it you will need a Python interpreter installed (I highly recommend the free [Anaconda](https://store.continuum.io/cshop/anaconda/) package manager for this) installed and the following command: 
 ```
 python pyuniprot.py
 ```
-I'm assuming that you have the python command mapped to the Python 3 interpreter. If you don't then use `python3` inplace of `python`. The other option is to run `chmod +x pyuniprot.py` so you can then use it like so:
+The other option is to run `chmod +x pyuniprot.py` so you can then use it like so:
 ```
-./pyuniprot
+./pyuniprot.py
 ```
 
 ## Usage
