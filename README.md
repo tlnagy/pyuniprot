@@ -1,16 +1,21 @@
 pyuniprot
 =======
 
-A simple and easy-to-use Python frontend for UniProt's REST API. It outputs a CSV file populated with the requested columns and information from Uniprot. 
+A simple and easy-to-use Python frontend for [UniProt](http://www.uniprot.org)'s REST API. It outputs a CSV file populated with the requested columns and information from Uniprot. 
+
+## Features
+
+- Accepts either JSON piped via command-line or a configuration file for requests
+- Automatic conversion from Uniprot's tab format to the more widely used csv format
 
 ## Installation
 
-Either clone it to your computer or download it as a zip file. To run it you will need a Python interpreter installed (I highly recommend the free [Anaconda](https://store.continuum.io/cshop/anaconda/) package manager for this) installed and the following command: 
-```
+Either clone it to your computer or download it as a zip file. To run it you will need a Python interpreter installed (I highly recommend the free [Anaconda](https://store.continuum.io/cshop/anaconda/) package manager for this) and the following command: 
+```bash
 python pyuniprot.py
 ```
 The other option is to run `chmod +x pyuniprot.py` so you can then use it like so:
-```
+```bash
 ./pyuniprot.py
 ```
 
@@ -47,8 +52,6 @@ The following are some examples of the possible columns:
 
 Please see <http://www.uniprot.org/faq/28> for the complete list of available columns and detailed information on building queries. 
 
-## To-do
+## License 
 
-- Make the code more flexible so that it can support all the Uniprot output formats. 
-- ~~Make it accept command-line argument for piping~~
-- Add support for Uniprot's useful ID mapping service
+BSD
