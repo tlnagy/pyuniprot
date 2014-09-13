@@ -13,5 +13,6 @@
 params = {
     'columns':'id,entry name,reviewed,protein names,sequence',
     'query':'sonic hedgehog AND organism:human',
-    'output':'output'
+    'output':'output',
+    'colnames':'ID,ENTRY,REVIEWED,PROTNAME,SEQ'
     }
