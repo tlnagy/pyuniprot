@@ -116,7 +116,7 @@ def main():
         if 'colnames' in params:
             colnames = params['colnames'].split(',')
             if len(colnames) is not len(cleaned_tab_result[0]):
-                raise Error('Too many or too few provided new column names')
+                raise Exception('Too many or too few provided new column names')
             cleaned_tab_result[0] = colnames
         file_name = '../%s_%s.csv'%(output, tab_results[1]['X-UniProt-Release'])
         print("Writing to %s"%file_name)        
